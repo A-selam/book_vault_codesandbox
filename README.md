@@ -1,51 +1,73 @@
-# Weekend Challenge: The Personal Book Vault 📚
+# React + TypeScript + Vite
 
-## Overview
-This weekend, you will build **The Personal Book Vault**, a mini-application that allows users to manage a personal collection of books. This project is designed to test your ability to integrate **Zustand** for global state, **TanStack Router** for navigation, and **React Hooks** for local logic—**without** the complexity of external API calls.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
----
+Currently, two official plugins are available:
 
-## 🛠 Tech Stack
-* **Framework:** React (Vite + TypeScript)
-* **Routing:** TanStack Router
-* **State Management:** Zustand
-* **Styling:** Tailwind CSS
-* **Data:** A local JSON file or constant array of books.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
----
+## React Compiler
 
-## 🎯 Functional Requirements
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-### 1. Navigation (TanStack Router)
-Implement a file-based router with the following structure:
-* **`/` (Home):** A dashboard displaying your reading statistics (e.g., "You have 5 books in your vault, 2 are marked as Read").
-* **`/browse`:** A page to view a pre-defined list of available books and add them to your vault.
-* **`/vault`:** A list of all books you have saved, with options to remove them or toggle their "Read" status.
+## Expanding the ESLint configuration
 
-### 2. Global State (Zustand)
-Create a centralized store to manage your collection. Your store should include:
-* `vault`: An array of book objects (Title, Author, CoverImage, ID, isRead).
-* `addToVault(book)`: Adds a book from the browse list to your personal vault.
-* `removeFromVault(id)`: Removes a book from the vault.
-* `toggleRead(id)`: Flips the `isRead` status of a specific book.
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-### 3. Data Persistence
-Use the Zustand **persist middleware** so that your vault remains intact even after a page refresh.
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
----
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-## 💡 Pro-Tips
-* **Zustand Selectors:** Use selectors like `const vault = useBookStore((s) => s.vault)` to ensure components only re-render when necessary.
-* **Derived State:** Don't store "totalReadCount" in the state. Instead, calculate it on the fly in your component or via a getter in the store to keep your state "source of truth" clean.
-* **Empty States:** Make sure the `/vault` page looks good even when no books have been added yet.
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
----
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-## 📖 Recommended Resources
-* **Zustand Persist:** [Persisting Store Data](https://docs.pmnd.rs/zustand/integrations/persisting-store-data)
-* **TanStack Router:** [File-based Routing Guide](https://tanstack.com/router/v1/docs/guide/file-based-routing)
-* **TypeScript:** [Object Interfaces](https://www.typescriptlang.org/docs/handbook/2/objects.html)
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
----
-
-> **Submission:** Push your code to a GitHub repository. Then create a sandbox to spin up and see your project easily on [CodeSandbox](https://codesandbox.io)
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
