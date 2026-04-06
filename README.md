@@ -1,73 +1,131 @@
-# React + TypeScript + Vite
+# Personal Book Vault
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A frontend internship project built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+The app lets users browse a curated list of books, add books to a personal vault, mark them as read, and view collection statistics by category.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Browse books in a responsive grid layout
+- Add books to a personal vault
+- Prevent duplicate additions to the vault
+- Mark books as read/unread
+- Remove books from the vault
+- Paginated browse view
+- Dashboard stats for total books, read, and unread counts
+- Category collection stats based on vault books
+- Persisted vault state using local storage (via Zustand persist middleware)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Book Categories
 
-## Expanding the ESLint configuration
+The current dataset uses four major categories:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Academic
+- Science Fiction
+- Technology
+- Mystery & Thriller
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Routes
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- `/` Home dashboard page
+  - Hero section
+  - Global vault stats
+  - Category collection cards
+- `/browse` Browse all available books with pagination and add-to-vault actions
+- `/vault` View vault books, toggle read status, and remove books
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Routing is implemented with TanStack Router file-based routes.
+
+## Tech Stack
+
+- React 19
+- TypeScript 5
+- Vite 8
+- TanStack Router
+- Zustand (with persist middleware)
+- Tailwind CSS 4
+- Lucide React icons
+- Framer Motion
+
+## Project Structure
+
+```text
+src/
+  components/
+    browse/
+    vault/
+  data/
+    mockBooks.ts
+  hooks/
+    useBrowse.ts
+    useBookCategoryState.ts
+    useDashboardStats.ts
+    useVault.ts
+  routes/
+    __root.tsx
+    index.tsx
+    browse.tsx
+    vault.tsx
+  store/
+    useBookStore.ts
+  types/
+    books.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Local Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js 18+
+- npm
+
+### Install
+
+```bash
+npm install
 ```
+
+### Run Development Server
+
+```bash
+npm run dev
+```
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+### Lint
+
+```bash
+npm run lint
+```
+
+## State Management Notes
+
+- Vault state is centralized in `useBookStore`.
+- Vault entries include `isRead` in addition to book metadata.
+- Data is persisted under the `book-store` key in browser local storage.
+
+## Current Data Model
+
+`Book` includes:
+
+- `id`
+- `title`
+- `author`
+- `image`
+- `inVault`
+- `category` (Academic | Science Fiction | Technology | Mystery & Thriller)
+
+`BookStoreBook` extends `Book` with:
+
+- `isRead`

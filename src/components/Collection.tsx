@@ -1,21 +1,15 @@
 import { BookOpenText, Clock3, FlaskConical, Sparkles } from "lucide-react";
+import { useBookCategoryStat } from "../hooks/useBookCategoryState";
 
 export function Collections() {
-  const collections = [
-    {
-      id: "c1",
-      title: "Systems Design",
-      count: "24 Items",
-      icon: BookOpenText,
-    },
-    { id: "c2", title: "Aesthetic Theory", count: "12 Items", icon: Sparkles },
-    { id: "c3", title: "Ancient Texts", count: "8 Items", icon: Clock3 },
-    {
-      id: "c4",
-      title: "Quantum Physics",
-      count: "15 Items",
-      icon: FlaskConical,
-    },
+  const { Academic, ScienceFiction, Technology, MysteryThriller } =
+    useBookCategoryStat();
+
+  const categoryDetails = [
+    { title: "Academic", count: Academic, icon: BookOpenText },
+    { title: "Science Fiction", count: ScienceFiction, icon: Sparkles },
+    { title: "Technology", count: Technology, icon: FlaskConical },
+    { title: "Mystery & Thriller", count: MysteryThriller, icon: Clock3 },
   ];
 
   return (
@@ -27,20 +21,18 @@ export function Collections() {
       </div>
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {collections.map((collection) => {
-          const Icon = collection.icon;
+        {categoryDetails.map((category) => {
+          const Icon = category.icon;
 
           return (
             <article
               className="rounded-xl bg-surface-container-high p-5 transition-colors hover:bg-surface-container-highest"
-              key={collection.id}
+              key={category.title}
             >
               <Icon className="text-surface-tint" size={16} strokeWidth={1.5} />
-              <h3 className="mt-16 text-lg font-semibold">
-                {collection.title}
-              </h3>
+              <h3 className="mt-16 text-lg font-semibold">{category.title}</h3>
               <p className="text-sm text-on-surface-variant">
-                {collection.count}
+                {category.count}
               </p>
             </article>
           );

@@ -8,6 +8,7 @@ const Books: Book[] = [
     inVault: false,
     image:
       "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80",
+    category: "Mystery & Thriller",
   },
   {
     id: "b2",
@@ -16,6 +17,7 @@ const Books: Book[] = [
     inVault: false,
     image:
       "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80",
+    category: "Science Fiction",
   },
   {
     id: "b3",
@@ -24,6 +26,7 @@ const Books: Book[] = [
     inVault: false,
     image:
       "https://images.unsplash.com/photo-1474932430478-367dbb6832c1?auto=format&fit=crop&w=800&q=80",
+    category: "Technology",
   },
   {
     id: "b4",
@@ -31,6 +34,7 @@ const Books: Book[] = [
     author: "Elena Rostova",
     inVault: false,
     image: "",
+    category: "Academic",
   },
   {
     id: "b5",
@@ -39,6 +43,7 @@ const Books: Book[] = [
     inVault: false,
     image:
       "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=800&q=80",
+    category: "Mystery & Thriller",
   },
   {
     id: "b6",
@@ -47,6 +52,7 @@ const Books: Book[] = [
     inVault: false,
     image:
       "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=800&q=80",
+    category: "Academic",
   },
   {
     id: "b7",
@@ -54,6 +60,7 @@ const Books: Book[] = [
     author: "H.P. Lovecraft",
     inVault: false,
     image: "",
+    category: "Mystery & Thriller",
   },
   {
     id: "b8",
@@ -62,6 +69,7 @@ const Books: Book[] = [
     inVault: false,
     image:
       "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=80",
+    category: "Mystery & Thriller",
   },
   {
     id: "b9",
@@ -70,6 +78,7 @@ const Books: Book[] = [
     inVault: false,
     image:
       "https://images.unsplash.com/photo-1529655683826-aba9b3e77383?auto=format&fit=crop&w=800&q=80",
+    category: "Science Fiction",
   },
   {
     id: "b10",
@@ -78,6 +87,7 @@ const Books: Book[] = [
     inVault: false,
     image:
       "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=80",
+    category: "Science Fiction",
   },
   {
     id: "b11",
@@ -85,6 +95,7 @@ const Books: Book[] = [
     author: "Noah Kade",
     inVault: false,
     image: "",
+    category: "Science Fiction",
   },
   {
     id: "b12",
@@ -93,6 +104,7 @@ const Books: Book[] = [
     inVault: false,
     image:
       "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=80",
+    category: "Technology",
   },
   {
     id: "b13",
@@ -100,6 +112,7 @@ const Books: Book[] = [
     author: "Ethan Rowe",
     inVault: false,
     image: "",
+    category: "Science Fiction",
   },
   {
     id: "b14",
@@ -108,6 +121,7 @@ const Books: Book[] = [
     inVault: false,
     image:
       "https://images.unsplash.com/photo-1496104679561-38b3b4d0a5f3?auto=format&fit=crop&w=800&q=80",
+    category: "Science Fiction",
   },
   {
     id: "b15",
@@ -115,6 +129,7 @@ const Books: Book[] = [
     author: "Daniel Frost",
     inVault: false,
     image: "",
+    category: "Technology",
   },
   {
     id: "b16",
@@ -123,6 +138,7 @@ const Books: Book[] = [
     inVault: false,
     image:
       "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80",
+    category: "Technology",
   },
   {
     id: "b17",
@@ -130,6 +146,7 @@ const Books: Book[] = [
     author: "Victor Hale",
     inVault: false,
     image: "",
+    category: "Science Fiction",
   },
   {
     id: "b18",
@@ -138,6 +155,7 @@ const Books: Book[] = [
     inVault: false,
     image:
       "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=80",
+    category: "Academic",
   },
   {
     id: "b19",
@@ -145,6 +163,7 @@ const Books: Book[] = [
     author: "Oliver Grant",
     inVault: false,
     image: "",
+    category: "Technology",
   },
   {
     id: "b20",
@@ -153,6 +172,7 @@ const Books: Book[] = [
     inVault: false,
     image:
       "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=800&q=80",
+    category: "Technology",
   },
   {
     id: "b21",
@@ -160,6 +180,7 @@ const Books: Book[] = [
     author: "Henry Doyle",
     inVault: false,
     image: "",
+    category: "Technology",
   },
   {
     id: "b22",
@@ -168,6 +189,7 @@ const Books: Book[] = [
     inVault: false,
     image:
       "https://images.unsplash.com/photo-1474932430478-367dbb6832c1?auto=format&fit=crop&w=800&q=80",
+    category: "Technology",
   },
 ];
 
