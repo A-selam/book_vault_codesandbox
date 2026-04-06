@@ -1,5 +1,7 @@
 # Personal Book Vault
 
+> CodeSandbox: https://ftwpww-5173.csb.app/
+
 A frontend internship project built with React, TypeScript, and Vite.
 
 The app lets users browse a curated list of books, add books to a personal vault, mark them as read, and view collection statistics by category.
