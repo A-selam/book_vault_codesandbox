@@ -38,14 +38,13 @@ Routing is implemented with TanStack Router file-based routes.
 
 ## Tech Stack
 
-- React 19
-- TypeScript 5
-- Vite 8
+- React
+- TypeScript
+- Vite
 - TanStack Router
-- Zustand (with persist middleware)
-- Tailwind CSS 4
+- Zustand
+- Tailwind CSS
 - Lucide React icons
-- Framer Motion
 
 ## Project Structure
 
@@ -76,7 +75,7 @@ src/
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js
 - npm
 
 ### Install
